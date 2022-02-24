@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">RBC ACCOUNT POC</string>
+    <string name="error">Error</string>
+    <string name="title">RBC Accounts</string>
+    <string name="loading">Loading...</string>
+    <string name="account">Account : </string>
+    <string name="balance">Balance : </string>
+    <string name="name">Name: </string>
+    <string name="error_message">Something went wrong, Please try again! </string>
+    <string name="no_transactions"> No Transactions Posted for the %1$s</string>
+
+</resources>

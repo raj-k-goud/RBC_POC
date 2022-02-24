@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:background="@color/grey_bg"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bg_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/account_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dimem_8"
+                android:text="Account : "
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:gravity="center_horizontal"
+                android:textAppearance="?attr/textAppearanceListItem"
+                app:layout_constraintBottom_toTopOf="@+id/account_number"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints"
+                android:background="@color/grey_bg"
+                tools:text="Account Holder Name" />
+
+            <TextView
+                android:id="@+id/account_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Number : "
+                android:gravity="center_horizontal"
+                android:background="@color/grey_bg"
+                android:paddingBottom="@dimen/dimem_8"
+                android:textAppearance="?attr/textAppearanceListItem"
+                app:layout_constraintBottom_toTopOf="@+id/account_balance"
+                app:layout_constraintTop_toBottomOf="@+id/account_name"
+                tools:ignore="MissingConstraints"
+                tools:text="Account Number" />
+
+
+            <TextView
+                android:id="@+id/account_balance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Transactions : "
+                android:paddingLeft="@dimen/dimem_12"
+                android:paddingTop="@dimen/dimem_8"
+                android:paddingBottom="@dimen/dimem_8"
+                android:gravity="start"
+                android:textStyle="bold"
+                android:background="@color/grey_divider"
+                android:textAppearance="?attr/textAppearanceListItem"
+                app:layout_constraintBottom_toTopOf="@+id/transaction_list_rv"
+                app:layout_constraintTop_toBottomOf="@+id/account_number"
+                tools:ignore="MissingConstraints"
+                tools:text="Transactions: " />
+
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="transaction_list_rv" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/transaction_list_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constrainedHeight="true"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintTop_toBottomOf="@+id/account_balance"
+                tools:listitem="@layout/list_item_transactions" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:paddingTop="100dp"
+                android:text="Loading Please Wait..."
+                android:textSize="16sp"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/account_balance"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <TextView
+                android:id="@+id/message"
+                android:paddingTop="40dp"
+                android:text="Loading Please Wait..."
+                android:textSize="@dimen/dimem_text_16"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/dimem_18"
+                android:layout_marginRight="@dimen/dimem_18"
+                android:textColor="@color/black"
+                android:gravity="center_horizontal"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressBar"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+
+</layout>

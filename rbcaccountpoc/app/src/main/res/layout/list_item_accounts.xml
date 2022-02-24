@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="account"
+            type="com.rbc.rbcaccountlibrary.Account"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:paddingTop="@dimen/dimem_4"
+        android:paddingBottom="@dimen/dimem_4"
+        android:id="@+id/item_layout"
+        android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bg_layout"
+        android:padding="@dimen/dimem_14"
+        android:background="@drawable/ic_rounded_rect_bg"
+        android:layout_width="match_parent"
+        android:importantForAccessibility="yes"
+        android:contentDescription="@{`Account `+ account.name +` (`+account.number +`)`}"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/account_holder_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:padding="@dimen/dimem_2"
+            android:text="@{account.name +` (`+account.number +`)`}"
+            android:textAppearance="?attr/textAppearanceListItem"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/account_number"
+            tools:ignore="MissingConstraints"
+            tools:text="Account Name" />
+
+        <TextView
+            android:id="@+id/account_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:padding="@dimen/dimem_2"
+            android:textColor="@color/black"
+            android:textAppearance="?attr/textAppearanceListItem"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/account_holder_name"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constrainedHeight="true"
+            tools:ignore="MissingConstraints"
+            tools:text="Account Number" />
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimem_48"
+            android:scaleType="fitEnd"
+            android:src="@drawable/ic_baseline_chevron_right_36"
+            app:layout_constraintLeft_toRightOf="@+id/account_holder_name"
+           app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/view_account_list_fragment">
+
+    <fragment
+        android:id="@+id/view_account_list_fragment"
+        android:name="com.test.rbcaccountpoc.ui.view.AccountsFragment"
+        tools:layout="@layout/fragment_account_list">
+
+        <action
+            android:id="@+id/action_view_account_list_fragment_to_account_detail_fragment"
+            app:destination="@id/account_details_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/account_details_fragment"
+        android:name="com.test.rbcaccountpoc.ui.view.TransactionDetailsFragment"
+        android:label="Account Details Fragment"
+        tools:layout="@layout/fragment_transaction_details">
+    </fragment>
+
+</navigation>
